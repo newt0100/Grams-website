@@ -260,19 +260,20 @@
       });
     }
     function GoBack() {
-      
-      document.body.style.backgroundColor = localStorage.getItem("color-list").background;
-      document.body.style.color = randCombo.text;
+      if (localStorage.getItem("color-list").length > -1) {
+        document.body.style.backgroundColor = localStorage.getItem("color-list").background;
+        document.body.style.color = randCombo.text;
 
-      const header = document.querySelector("header");
-      header.style.color = randCombo.background;
-      header.style.backgroundColor = randCombo.text;
+        const header = document.querySelector("header");
+        header.style.color = randCombo.background;
+        header.style.backgroundColor = randCombo.text;
 
-      const buttons = document.querySelectorAll("button");
-      buttons.forEach((button) => {
-        button.style.backgroundColor = randCombo.text;
-        button.style.color = randCombo.background;
-      });
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach((button) => {
+          button.style.backgroundColor = randCombo.text;
+          button.style.color = randCombo.background;
+        });
+    }
     }
     function SpaceBlasters() {
       const button = document.getElementById('Space-Blasters');
