@@ -234,7 +234,7 @@
     ];
     function changecolor() {
       
-
+      console.log("garfield")
       const randCombo = colorCombos[Math.floor(Math.random() * colorCombos.length)];
       document.body.style.backgroundColor = randCombo.background;
       document.body.style.color = randCombo.text;
@@ -260,7 +260,7 @@
       });
     }
     function GoBack() {
-      console.log("garfield")
+      
       if (localStorage.getItem("color-list").length = 0) {
         
         const color = localStorage.getItem("color-list")[1]
