@@ -251,27 +251,28 @@
       if (blah = null) {
         blah = []
         blah.push(randCombo)
+        localStorage.setItem("color-list", randCombo)
       } else {
         blah = localStorage.getItem("color-list")
         blah.push(randCombo)
         localStorage.setItem("color-list", blah)
       }
-      localStorage.setItem("color-list", randCombo)
       });
     }
     function GoBack() {
       if (localStorage.getItem("color-list").length > -1) {
-        document.body.style.backgroundColor = localStorage.getItem("color-list")[0].background;
-        document.body.style.color = localStorage.getItem("color-list")[0].text;
+        const color = localStorage.getItem("color-list")[1]
+        document.body.style.backgroundColor = color.background;
+        document.body.style.color = color.text;
 
         const header = document.querySelector("header");
-        header.style.color = localStorage.getItem("color-list")[0].background;
-        header.style.backgroundColor = localStorage.getItem("color-list")[0].text;
+        header.style.color = color.background;
+        header.style.backgroundColor = color.text;
 
         const buttons = document.querySelectorAll("button");
         buttons.forEach((button) => {
-          button.style.backgroundColor = localStorage.getItem("color-list")[0].text;
-          button.style.color = localStorage.getItem("color-list")[0].background;
+          button.style.backgroundColor = color.text;
+          button.style.color = color.background;
         });
     }
     }
