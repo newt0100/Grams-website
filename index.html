@@ -260,7 +260,8 @@
       });
     }
     function GoBack() {
-      if (localStorage.getItem("color-list").length > -1) {
+      if (localStorage.getItem("color-list").length = 0) {
+        console.log("garfield")
         const color = localStorage.getItem("color-list")[1]
         document.body.style.backgroundColor = color.background;
         document.body.style.color = color.text;
