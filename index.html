@@ -74,7 +74,6 @@
     <button id="rescramble" onclick="changecolor()">Randomize!</button>
     <button id="mode" onclick="modeswitch()">Dark Mode</button>
     <div id="timer">You've been on this website for 0 hours, 0 minutes, and 0 seconds!</div>
-<body>
   <h1>ART!</h1>
   <div class="image-grid">
     <img src="art stuff for website/lil bird.jpg" alt="A cute bird">
@@ -234,7 +233,6 @@
     ];
     function changecolor() {
       
-      console.log("garfield")
       const randCombo = colorCombos[Math.floor(Math.random() * colorCombos.length)];
       document.body.style.backgroundColor = randCombo.background;
       document.body.style.color = randCombo.text;
@@ -262,7 +260,7 @@
     function GoBack() {
       
       if (localStorage.getItem("color-list").length = 0) {
-        
+        console.log('bazigna')
         const color = localStorage.getItem("color-list")[1]
         document.body.style.backgroundColor = color.background;
         document.body.style.color = color.text;
