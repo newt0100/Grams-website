@@ -247,10 +247,13 @@
       buttons.forEach((button) => {
         button.style.backgroundColor = randCombo.text;
         button.style.color = randCombo.background;
-      console.log("bazigna")
+      localStorage.getItem("color-list")
+      console.log(localStorage.getItem("color-list"))
       });
     }
+    function GoBack() {
 
+    }
     function SpaceBlasters() {
       const button = document.getElementById('Space-Blasters');
       const gameContainer = document.getElementById('game-container');
