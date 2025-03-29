@@ -261,17 +261,17 @@
     }
     function GoBack() {
       if (localStorage.getItem("color-list").length > -1) {
-        document.body.style.backgroundColor = localStorage.getItem("color-list").background;
-        document.body.style.color = randCombo.text;
+        document.body.style.backgroundColor = localStorage.getItem("color-list")[0].background;
+        document.body.style.color = localStorage.getItem("color-list")[0].text;
 
         const header = document.querySelector("header");
-        header.style.color = randCombo.background;
-        header.style.backgroundColor = randCombo.text;
+        header.style.color = localStorage.getItem("color-list")[0].background;
+        header.style.backgroundColor = localStorage.getItem("color-list")[0].text;
 
         const buttons = document.querySelectorAll("button");
         buttons.forEach((button) => {
-          button.style.backgroundColor = randCombo.text;
-          button.style.color = randCombo.background;
+          button.style.backgroundColor = localStorage.getItem("color-list")[0].text;
+          button.style.color = localStorage.getItem("color-list")[0].background;
         });
     }
     }
