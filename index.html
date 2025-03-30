@@ -289,15 +289,21 @@
         return x
       } else {
         return []
+
       }
-      
     }
     function GoBack() {
       const colorList = getColorList()
-      colorList.pop()
-      let resetTo = colorList[colorList.length - 1]
-      storeColorList(colorList)
-      ImplamentColor(resetTo)
+      if (colorList.length <= 1) {
+        ImplamentColor({background: "#DF6589", text: "#3C1053"})
+        console.log("0")
+        colorList.pop()
+      } else {
+        colorList.pop()
+        let resetTo = colorList[colorList.length - 1]
+        storeColorList(colorList)
+        ImplamentColor(resetTo)
+      }
     }
     function SpaceBlasters() {
       const button = document.getElementById('Space-Blasters');
