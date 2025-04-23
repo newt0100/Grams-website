@@ -70,6 +70,7 @@
 <body>
   <header>Gram's Arts and Other Stuff</header>
   <div id="timer and buttons">
+    <a href="url">link text</a>
     <button id="go-back" onclick="GoBack()"><</button>
     <button id="rescramble" onclick="changecolor()">Randomize!</button>
     <button id="mode" onclick="modeswitch()">Dark Mode</button>
@@ -109,9 +110,14 @@
   </div>
 
   <script>
-    localStorage.clear("color-list")
-    console.log(localStorage.getItem("color-list"))
-
+    const y = getColorList()[getColorList().length]
+    console.log(y)
+    if (y != undefined) {
+      ImplamentColor(y)
+    }else{
+      console.log("garfield")
+    }
+    
     let seconds = 0;
     let minutes = 0;
     let hours = 0;
