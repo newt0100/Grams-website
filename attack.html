@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monty Macontosh Attack Roller</title>
+  <style>
+    body {
+      background-color: #DF6589;
+      color: #3C1053;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 7vw;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #3C1053;
+      color: #DF6589;
+      padding: 14px 24px;
+      font-size: 5vw;
+      margin: 15px 0;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 300px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      font-size: 5vw;
+      margin: 8px 0;
+      display: block;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      max-width: 300px;
+      padding: 12px;
+      font-size: 5vw;
+      margin: 10px 0 20px;
+      border-radius: 5px;
+      border: 1px solid #3C1053;
+    }
+
+    .checkbox-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .checkbox-container label {
+      display: flex;
+      align-items: center;
+      font-size: 4.5vw;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.5);
+    }
+
+    #resultss {
+      margin-top: 30px;
+      font-size: 4.2vw;
+      text-align: left;
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 36px;
+      }
+      button {
+        font-size: 18px;
+      }
+      label,
+      input[type="text"],
+      .checkbox-container label,
+      #resultss {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Monty Macontosh Attack Roller</h1>
+  <button onclick="attackrole()">Attack</button>
+
+  <label for="name">Armor Class:</label>
+  <input type="text" id="name" name="name" placeholder="Enter AC" />
+
+  <div class="checkbox-container">
+    <label><input type="checkbox" id="advantage" name="advantage"> Advantage?</label>
+    <label><input type="checkbox" id="disadvantage" name="disadvantage"> Disadvantage?</label>
+  </div>
+
+  <div id="resultss"><strong>=== Attack Results ===</strong></div>
+
+  <script>
+    const damageRecord = [];
+
+    function attackrole() {
+      const armorClass = Number(document.getElementById("name").value);
+      const advantage = document.getElementById("advantage");
+      const disadvantage = document.getElementById("disadvantage");
+
+      const twentyRoles = [];
+      const tenRoles = [];
+      let amountOrolls = 5;
+      let hits = 0;
+      let bonusRolls = 0;
+      let attackNumber = 1;
+      const attackResults = [];
+
+      for (let i = 0; i < amountOrolls; i++) {
+        let d20 = 0;
+        let roll1 = 0;
+        let roll2 = 0;
+        let mode = "Normal";
+
+        if (advantage.checked) {
+          roll1 = Math.floor(Math.random() * 20) + 1;
+          roll2 = Math.floor(Math.random() * 20) + 1;
+          d20 = Math.max(roll1, roll2);
+          mode = "Advantage";
+        } else if (disadvantage.checked) {
+          roll1 = Math.floor(Math.random() * 20) + 1;
+          roll2 = Math.floor(Math.random() * 20) + 1;
+          d20 = Math.min(roll1, roll2);
+          mode = "Disadvantage";
+        } else {
+          d20 = Math.floor(Math.random() * 20) + 1;
+        }
+
+        d20 += 10;
+        const d10 = Math.floor(Math.random() * 10) + 6;
+        const hit = d20 !== 1 && d20 >= armorClass;
+
+        if (hit) hits += 1;
+
+        twentyRoles.push(d20);
+        tenRoles.push(d10);
+
+        attackResults.push({
+          attack: attackNumber++,
+          d20,
+          d10,
+          hit,
+          bonus: false,
+          mode,
+          roll1,
+          roll2
+        });
+
+        if (hits === 2) {
+          hits = 0;
+          bonusRolls += 1;
+        }
+      }
+
+      for (let e = 0; e < bonusRolls; e++) {
+        const d20 = Math.floor(Math.random() * 20) + 1;
+        const d10 = Math.floor(Math.random() * 10) + 1;
+        const hit = d20 !== 1 && d20 >= armorClass;
+
+        twentyRoles.push(d20);
+        tenRoles.push(d10);
+
+        attackResults.push({
+          attack: attackNumber++,
+          d20,
+          d10,
+          hit,
+          bonus: true,
+          mode: "Normal"
+        });
+      }
+
+      const x = document.getElementById("resultss");
+      let resultHTML = `<strong>=== Attack Results ===</strong><br><br>`;
+      let totalDamage = 0;
+
+      attackResults.forEach(result => {
+        resultHTML += `Attack ${result.attack} ${result.bonus ? "(Bonus)" : ""} - ${result.mode}:<br>`;
+        if (result.mode === "Advantage" || result.mode === "Disadvantage") {
+          resultHTML += `&nbsp;&nbsp; Rolls: ${result.roll1} and ${result.roll2}<br>`;
+        }
+        resultHTML += `&nbsp;&nbsp; d20 Used: ${result.d20} - ${result.hit ? "Hit!" : "Miss"}<br>`;
+        resultHTML += `&nbsp;&nbsp; Damage (d10): ${result.d10}<br><br>`;
+
+        if (result.hit) totalDamage += result.d10;
+      });
+
+      resultHTML += `<strong>Total Damage: ${totalDamage}</strong><br>`;
+      x.innerHTML = resultHTML;
+      damageRecord.push(totalDamage);
+    }
+  </script>
+</body>
+</html>
+
