@@ -7,11 +7,11 @@
       src: url("BebasNeue-Regular.ttf");
     }
     body {
-      background-color: #DF6589;
+      background-color: rgb(237, 106, 102);
       text-align: center;
       margin: 100px;
       margin-top: 150px;
-      color: #3C1053;
+      color: rgb(61, 21, 95);
       padding: 40px;
       font-family: Arial, sans-serif;
     }
@@ -69,29 +69,36 @@
 </head>
 <body>
   <header>Gram's Arts and Other Stuff</header>
+  <nav style="margin-top: 140px;">
+    <button onclick="document.getElementById('art-section').scrollIntoView({ behavior: 'smooth' });">Art</button>
+    <button onclick="document.getElementById('projects-section').scrollIntoView({ behavior: 'smooth' });">Programming Projects</button>
+    <button onclick="document.getElementById('writing-section').scrollIntoView({ behavior: 'smooth' });">Writing</button>
+  </nav>  
   <div id="timer and buttons">
     <button id="go-back" onclick="GoBack()"><</button>
     <button id="rescramble" onclick="changecolor()">Randomize!</button>
     <button id="mode" onclick="modeswitch()">Dark Mode</button>
     <div id="timer">You've been on this website for 0 hours, 0 minutes, and 0 seconds!</div>
-  <h1>ART!</h1>
-  <div class="image-grid">
-    <img src="art stuff for website/lil bird.jpg" alt="A cute bird">
-    <img src="art stuff for website/pear.jpg" alt="A pear illustration">
-    <img src="art stuff for website/photoshop pear.jpg" alt="A pear edited in Photoshop">
-    <img src="art stuff for website/fluffy bird.jpg" alt="A fluffy bird">
-    <img src="art stuff for website/Untitled-1.jpg" alt="Untitled artwork">
-    <img src="art stuff for website/teapot.jpg" alt="A teapot">
-    <img src="art stuff for website/clownfish.jpg" alt="A clownfish">
-    <img src="art stuff for website/fisssh.jpg" alt="A fish">
-    <img src="art stuff for website/shark man.jpg" alt="A shark-man hybrid">
-    <img src="art stuff for website/sockey post.jpg" alt="A sockeye salmon illustration">
-    <img src="art stuff for website/franckinstine-ass-shit-export.jpg" alt="A Frankenstein-inspired artwork">
-    <img src="art stuff for website/dino copy.jpg" alt="A dinosaur illustration">
-    <img src="art stuff for website/garfeild.jpg" alt="A Garfield-inspired artwork">
-    <img src="art stuff for website/rubber duck working background.jpg" alt="A rubber duck with background work">
-    <img src="art stuff for website/shark.jpg" alt="A shark illustration">
-  </div>
+  <section id="art-section">
+    <h1>ART!</h1>
+      <div class="image-grid">  
+      <img src="art stuff for website/lil bird.jpg" alt="A cute bird">
+      <img src="art stuff for website/pear.jpg" alt="A pear illustration">
+      <img src="art stuff for website/photoshop pear.jpg" alt="A pear edited in Photoshop">
+      <img src="art stuff for website/fluffy bird.jpg" alt="A fluffy bird">
+      <img src="art stuff for website/Untitled-1.jpg" alt="Untitled artwork">
+      <img src="art stuff for website/teapot.jpg" alt="A teapot">
+      <img src="art stuff for website/clownfish.jpg" alt="A clownfish">
+      <img src="art stuff for website/fisssh.jpg" alt="A fish">
+      <img src="art stuff for website/shark man.jpg" alt="A shark-man hybrid">
+      <img src="art stuff for website/sockey post.jpg" alt="A sockeye salmon illustration">
+      <img src="art stuff for website/franckinstine-ass-shit-export.jpg" alt="A Frankenstein-inspired artwork">
+      <img src="art stuff for website/dino copy.jpg" alt="A dinosaur illustration">
+      <img src="art stuff for website/garfeild.jpg" alt="A Garfield-inspired artwork">
+      <img src="art stuff for website/rubber duck working background.jpg" alt="A rubber duck with background work">
+      <img src="art stuff for website/shark.jpg" alt="A shark illustration">
+    </div>
+  </section>
 
   <h1>GAMES!</h1>
   <div id="game-container"></div>
