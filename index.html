@@ -1,469 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <style>
-    @font-face {
-      font-family: "Bebas Neue";
-      src: url("BebasNeue-Regular.ttf");
-    }
     body {
-      background-color: rgb(237, 106, 102);
-      text-align: center;
-      margin: 100px;
-      margin-top: 150px;
-      color: rgb(61, 21, 95);
-      padding: 40px;
-      font-family: Arial, sans-serif;
-    }
-    header {
-      background-color: #3C1053;
-      padding: 60px 0;
-      font-size: 60px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      color:  rgb(237, 106, 102);
-      font-family: "Bebas Neue", serif;
-      box-shadow: 0 8px 6px -6px rgb(61, 21, 95);
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    }
-    h1 {
-      font-family: "Bebas Neue", serif;
-      font-size: 50px;
-    }
-    .image-grid {
-      column-count: 4;
-      column-gap: 21px;
-    }
-    @media (max-width: 1500px) {
-      .image-grid { column-count: 3; }
-    }
-    @media (max-width: 1200px) {
-      .image-grid { column-count: 2; }
-    }
-    @media (max-width: 900px) {
-      .image-grid { column-count: 1; }
-    }
-    .image-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      break-inside: avoid;
-    }
-    button {
-      background-color: rgb(61, 21, 95);
-      color: rgb(237, 106, 102);
-      padding: 10px 20px;
-      font-size: 18px;
-      margin: 20px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      background: repeating-linear-gradient(-40deg, 
+        #f9a875 0px,
+        #f9a875 10px,
+        #fff6d3 10px,
+        #fff6d3 20px);
     }
 
+    .side-header {
+      width: 200px;
+      background-color: #f9a875;
+      color: #7c3f58;
+      height: 100vh;
+      padding: 40px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      font-family: myFont;
+      font-size: 40px;
+      box-shadow: 5px 5px 12px rgba(90, 37, 59, 0.3);
+      line-height: 0.85;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .button {
+      background-color: #7c3f58;
+      color: #f9a875;
+      border: none;
+      width: 240px;
+      padding: 20px 0px;
+      margin-top: 20px;
+      font-family: myFont;
+      font-size: 25px;
+      letter-spacing: 1.5px;
+      border-radius: 60px;
+      cursor: pointer;
+    }
+
+    @font-face {
+      font-family: myFont;
+      src: url(BebasNeue-Regular.ttf);
+    }
+
+    .post {
+      margin-left: 300px;
+      margin-right: 20px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: #7c3f52;
+    }
+
+    .rounded-square {
+      display: inline-block;
+      background-color: #fff6d3;
+      border-radius: 40px;
+      padding: 30px;
+      margin-top: 20px;
+      border: 3px solid #f9a875;
+      box-shadow: 5px 5px 12px rgba(90, 37, 59, 0.3);
+    }
+
+    .rounded-square img {
+      display: block;
+      border-radius: 10px;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 30px;
+    }
   </style>
 </head>
 <body>
-  <header>Gram's Arts and Other Stuff</header>
-  <nav style="margin-top: 140px;">
-    <button onclick="document.getElementById('art-section').scrollIntoView({ behavior: 'smooth' });">Art</button>
-    <button onclick="document.getElementById('projects-section').scrollIntoView({ behavior: 'smooth' });">Programming Projects</button>
-    <button onclick="document.getElementById('writing-section').scrollIntoView({ behavior: 'smooth' });">Writing</button>
-  </nav>  
-  <div id="timer and buttons">
-    <button id="go-back" onclick="GoBack()"><</button>
-    <button id="rescramble" onclick="changecolor()">Randomize!</button>
-    <button id="mode" onclick="modeswitch()">Dark Mode</button>
-    <div id="timer">You've been on this website for 0 hours, 0 minutes, and 0 seconds!</div>
-  <section id="art-section">
-    <h1>ART!</h1>
-      <div class="image-grid">  
-      <img src="art stuff for website/lil bird.jpg" alt="A cute bird">
-      <img src="art stuff for website/pear.jpg" alt="A pear illustration">
-      <img src="art stuff for website/photoshop pear.jpg" alt="A pear edited in Photoshop">
-      <img src="art stuff for website/fluffy bird.jpg" alt="A fluffy bird">
-      <img src="art stuff for website/Untitled-1.jpg" alt="Untitled artwork">
-      <img src="art stuff for website/teapot.jpg" alt="A teapot">
-      <img src="art stuff for website/clownfish.jpg" alt="A clownfish">
-      <img src="art stuff for website/fisssh.jpg" alt="A fish">
-      <img src="art stuff for website/shark man.jpg" alt="A shark-man hybrid">
-      <img src="art stuff for website/sockey post.jpg" alt="A sockeye salmon illustration">
-      <img src="art stuff for website/portrait.jpg" alt="portrait">
-      <img src="art stuff for website/dino copy.jpg" alt="A dinosaur illustration">
-      <img src="art stuff for website/garfeild.jpg" alt="A Garfield-inspired artwork">
-      <img src="art stuff for website/rubber duck working background.jpg" alt="A rubber duck with background work">
-      <img src="art stuff for website/shark.jpg" alt="A shark illustration">
-    </div>
-  </section>
 
-  <h1>GAMES!</h1>
-  <div id="game-container"></div>
-  <div>
-    <button id="Space-Blasters" onclick="SpaceBlasters()">Space Blasters</button>
-    <button id="Orb-Game" onclick="OrbGame()">Orb Game</button>
-  </div>
-  <div>
-    <h1>Monty Macontosh attack roler</h1>
-    <a href="attack.html">Monty Macontosh attack roler</a>
-    <button id="attack" onclick="attackrole()">Attack</button>
-    <label for="name">Armor Class:</label>
-    <input type="text" id="name" name="name">
-    <input type="checkbox" id="advantage" name="advantage">
-    <label for="advantage">Advantage?</label>
-    <input type="checkbox" id="disadvantage" name="disadvantage">
-    <label for="disadvantage">Disadvantage?</label>
-    <div id="resultss">=== Attack Results ===</div>
-  </div>
-  <div id="content">
-    Lorem ipsum dolor sit amet,<br>consectetur adipiscing elit. 
-    Duis scelerisque lectus mollis varius aliquet. 
-    Aliquam at ligula eget enim iaculis tempor ac sit amet orci. 
-    Phasellus ullamcorper neque non purus varius efficitur. 
-    ...
-  </div>
+  <!-- Load PapaParse -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <!-- Side header -->
+  <header class="side-header">
+    <h1 id="HEAD">GRAM.<br>WEB</h1>
+    <button onclick="RELODE()" class="button">HOME</button>
+    <button onclick="ART_BUTTON()" class="button">ART</button>
+    <button onclick="WRITING_BUTTON()" class="button">WRITING</button>
+    <button onclick="GAMES_BUTTON()" class="button">GAMES</button>
+
+  </header>
+
+  <div id="post"></div>
 
   <script>
-    const damageRecord = []
-    const y = getColorList()[getColorList().length]
-    console.log(y)
-    if (y != undefined) {
-      ImplamentColor(y)
-    }else{
-      console.log("garfield")
-    }
-    
-    let seconds = 0;
-    let minutes = 0;
-    let hours = 0;
+    let allPosts = [];
+    const HEAD = document.getElementById("HEAD");
+    // Load CSV data
+    document.addEventListener('DOMContentLoaded', function () {
+      const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmEkRx-2gjc5YM2BbuDtlWt-qORpsUvN6ZI_XeV2YEkcwH0GLvWRUkZLX-4C2IcX12owwHupO2ZJyg/pub?output=csv';
 
-    function stopwatch() {
-      seconds += 1;
-      if (seconds == 60) {
-        minutes += 1;
-        seconds = 0;
-      }
-      if (minutes == 60) {
-        hours += 1;
-        minutes = 0;
-      }
-      const x = document.getElementById("timer");
-      x.innerHTML = `You've been on this website for ${hours} hours, ${minutes} minutes, and ${seconds} seconds!`;
-    }
-
-    setInterval(stopwatch, 1000);
-
-    function modeswitch() {
-      const body = document.body;
-      const header = document.querySelector("header");
-      const buttons = document.querySelectorAll("button");
-
-      const currentBackground = body.style.backgroundColor;
-      const currentText = body.style.color;
-
-      body.style.backgroundColor = currentText;
-      body.style.color = currentBackground;
-
-      header.style.backgroundColor = currentBackground;
-      header.style.color = currentText;
-
-      buttons.forEach((button) => {
-        button.style.backgroundColor = currentBackground;
-        button.style.color = currentText;
-      });
-    }
-    const colorCombos = [
-      { background: "#F0EDCC", text: "#02343F" },
-      { background: "#ACC7B4", text: "#331B3F" },
-      { background: "#F5D042", text: "#0A174E" },
-      { background: "#CED46A", text: "#07553B" },
-      { background: "#DCE2F0", text: "#50586C" },
-      { background: "#F9EBDE", text: "#815854" },
-      { background: "#DDA94B", text: "#1E4174" },
-      { background: "#FFDFB9", text: "#A4193D" },
-      { background: "#1AAFBC", text: "#80634C" },
-      { background: "#FFDFDE", text: "#6A7BA2" },
-      { background: "#DA5A2A", text: "#3B1877" },
-      { background: "#E69A8D", text: "#5F4B8B" },
-      { background: "#FFFFFF", text: "#000000" },
-      { background: "#ADEFD1", text: "#00203F" },
-      { background: "#D6ED17", text: "#606060" },
-      { background: "#97BC62", text: "#2C5F2D" },
-      { background: "#EEA47F", text: "#00539C" },
-      { background: "#9CC3D5", text: "#0063B2" },
-      { background: "#FEE715", text: "#101820" },
-      { background: "#CBCE91", text: "#d3687f" },
-      { background: "#5CC8D7", text: "#B1624E" },
-      { background: "#FCF6F5", text: "#7b9acc" },
-      { background: "#F2AA4C", text: "#101820" },
-      { background: "#D4B996", text: "#A07855" },
-      { background: "#A2A2A1", text: "#195190" },
-      { background: "#C7D3D4", text: "#603F83" },
-      { background: "#FCF6F5", text: "#2BAE66" },
-      { background: "#FAD0C9", text: "#6E6E6D" },
-      { background: "#ed6f63", text: "#2D2926" },
-      { background: "#DAA03D", text: "#616247" },
-      { background: "#FCF6F5", text: "#990011" },
-      { background: "#D64161", text: "#364b44" },
-      { background: "#CBCE91", text: "#76528B" },
-      { background: "#FAEBEF", text: "#333D79" },
-      { background: "#FDD20E", text: "#c72d1b" },
-      { background: "#F2EDD7", text: "#755139" },
-      { background: "#1a7a4c", text: "#101820" },
-      { background: "#FFFFFF", text: "#F95700" },
-      { background: "#FFD662", text: "#00539C" },
-      { background: "#D7C49E", text: "#343148" },
-      { background: "#F5C7B8", text: "#cf8360" },
-      { background: "#DF6589", text: "#3C1053" },
-      { background: "#FFE77A", text: "#2C5F2D" },
-      { background: "#e9877e", text: "#9E1030" },
-      { background: "#FCF951", text: "#422057" },
-      { background: "#4B878B", text: "#921416" },
-      { background: "#CE4A7E", text: "#1C1C1B" },
-      { background: "#FDDB27", text: "#00B1D2" },
-      { background: "#ff9967", text: "#558600" },
-      { background: "#BD7F37", text: "#A13941" },
-      { background: "#ed6a66", text: "#3D155F" },
-      { background: "#DF678C", text: "#292826" },
-      { background: "#CCF381", text: "#4831D4" },
-      { background: "#F0A07B", text: "#4A274F" },
-      { background: "#DCE2F0", text: "#50586C" },
-      { background: "#F9EBDE", text: "#815854" },
-      { background: "#DDA94B", text: "#1E4174" },
-      { background: "#FFDFB9", text: "#A4193D" },
-      { background: "#1AAFBC", text: "#80634C" },
-      { background: "#FFDFDE", text: "#6A7BA2" },
-      { background: "#DA5A2A", text: "#3B1877" },
-      { background: "#E69A8D", text: "#5F4B8B" },
-      { background: "#FFFFFF", text: "#000000" },
-      { background: "#ADEFD1", text: "#00203F" },
-      { background: "#97BC62", text: "#2C5F2D" },
-      { background: "#EEA47F", text: "#00539C" },
-      { background: "#9CC3D5", text: "#0063B2" },
-      { background: "#FEE715", text: "#101820" },
-      { background: "#5CC8D7", text: "#B1624E" },
-      { background: "#FCF6F5", text: "#7b9acc" },
-      { background: "#F2AA4C", text: "#101820" },
-      { background: "#D4B996", text: "#A07855" },
-      { background: "#A2A2A1", text: "#195190" },
-      { background: "#C7D3D4", text: "#603F83" },
-      { background: "#FCF6F5", text: "#2BAE66" },
-      { background: "#FAD0C9", text: "#6E6E6D" },
-      { background: "#ed6f63", text: "#2D2926" },
-      { background: "#DAA03D", text: "#616247" },
-
-
-    ];
-    function changecolor() {
-      
-      const randCombo = colorCombos[Math.floor(Math.random() * colorCombos.length)];
-      // document.body.style.backgroundColor = randCombo.background;
-      // document.body.style.color = randCombo.text;
-
-      // const header = document.querySelector("header");
-      // header.style.color = randCombo.background;
-      // header.style.backgroundColor = randCombo.text;
-
-      // const buttons = document.querySelectorAll("button");
-      // buttons.forEach((button) => {
-      //   button.style.backgroundColor = randCombo.text;
-      //   button.style.color = randCombo.background;
-      // });
-      ImplamentColor(randCombo)
-      recordColor(randCombo)
-    }
-    
-    function recordColor(enteringColor) {
-      let blah = getColorList()
-      if (blah == null) {
-        blah = []
-      }
-      console.log(blah)
-      blah.push(enteringColor)
-      storeColorList(blah)
-      console.log(getColorList())
-    }
-    function ImplamentColor(inputColor) {
-      document.body.style.backgroundColor = inputColor.background;
-      document.body.style.color = inputColor.text;
-
-      const header = document.querySelector("header");
-      header.style.color = inputColor.background;
-      header.style.backgroundColor = inputColor.text;
-
-      const buttons = document.querySelectorAll("button");
-      buttons.forEach((button) => {
-        button.style.backgroundColor = inputColor.text;
-        button.style.color = inputColor.background;
-      });
-    }
-    function storeColorList(colorList) {
-      if (Array.isArray(colorList)) {
-       localStorage.setItem("color-list", JSON.stringify(colorList)) 
-      } else {
-      
-        console.log("NOT AN ARRAY!!")
-      } 
-    }
-    function getColorList() {
-      const x = JSON.parse(localStorage.getItem("color-list"))
-      if (Array.isArray(x)) {
-        return x
-      } else {
-        return []
-
-      }
-    }
-    function GoBack() {
-      const colorList = getColorList()
-      if (colorList.length <= 1) {
-        ImplamentColor({background: "#DF6589", text: "#3C1053"})
-        console.log("0")
-        colorList.pop()
-      } else {
-        colorList.pop()
-        let resetTo = colorList[colorList.length - 1]
-        storeColorList(colorList)
-        ImplamentColor(resetTo)
-      }
-    }
-    function SpaceBlasters() {
-      const button = document.getElementById('Space-Blasters');
-      const gameContainer = document.getElementById('game-container');
-
-      const iframe = document.createElement('iframe');
-      iframe.src = 'sb/index.html';
-      iframe.width = '1152px';
-      iframe.height = '648px';
-      iframe.style.border = 'none';
-      gameContainer.appendChild(iframe);
-
-      button.style.display = 'none';
-    }
-
-    function attackrole() {
-      const armorClass = Number(document.getElementById("name").value); // Get armor class from input
-      const advantage = document.getElementById("advantage");
-      const disadvantage = document.getElementById("disadvantage");
-      const twentyRoles = [];
-      const tenRoles = [];
-      let amountOrolls = 5;
-      let hits = 0;
-      let bonusRolls = 0;
-      let attackNumber = 1;
-      const attackResults = [];
-
-      // Main attack rolls
-      for (let i = 0; i < amountOrolls; i++) {
-        let d20 = 0;
-        let roll1 = 0;
-        let roll2 = 0;
-        let mode = "Normal";
-
-        if (advantage.checked) {
-          roll1 = Math.floor(Math.random() * 20) + 1;
-          roll2 = Math.floor(Math.random() * 20) + 1;
-          d20 = Math.max(roll1, roll2);
-          mode = "Advantage";
-        } else if (disadvantage.checked) {
-          roll1 = Math.floor(Math.random() * 20) + 1;
-          roll2 = Math.floor(Math.random() * 20) + 1;
-          d20 = Math.min(roll1, roll2);
-          mode = "Disadvantage";
-        } else {
-          d20 = Math.floor(Math.random() * 20) + 1;
-        }
-        d20 += 10
-        const d10 = Math.floor(Math.random() * 10) + 6;
-        const hit = d20 !== 1 && d20 >= armorClass;
-
-        if (hit) hits += 1;
-
-        twentyRoles.push(d20);
-        tenRoles.push(d10);
-
-        attackResults.push({
-          attack: attackNumber++,
-          d20,
-          d10,
-          hit,
-          bonus: false,
-          mode,
-          roll1,
-          roll2
-        });
-
-        if (hits === 2) {
-          hits = 0;
-          bonusRolls += 1;
-        }
-      }
-
-      // Bonus attack rolls
-      for (let e = 0; e < bonusRolls; e++) {
-        const d20 = Math.floor(Math.random() * 20) + 1;
-        const d10 = Math.floor(Math.random() * 10) + 1;
-        const hit = d20 !== 1 && d20 >= armorClass;
-
-        twentyRoles.push(d20);
-        tenRoles.push(d10);
-
-        attackResults.push({
-          attack: attackNumber++,
-          d20,
-          d10,
-          hit,
-          bonus: true,
-          mode: "Normal"
-        });
-      }
-
-      const x = document.getElementById("resultss");
-      let resultHTML = `<strong>=== Attack Results ===</strong><br><br>`;
-
-      let totalDamage = 0;
-      attackResults.forEach(result => {
-        resultHTML += `Attack ${result.attack} ${result.bonus ? "(Bonus)" : ""} - ${result.mode}:<br>`;
-        if (result.mode === "Advantage" || result.mode === "Disadvantage") {
-          resultHTML += `&nbsp;&nbsp; Rolls: ${result.roll1} and ${result.roll2}<br>`;
-        }
-        resultHTML += `&nbsp;&nbsp; d20 Used: ${result.d20} - ${result.hit ? "Hit!" : "Miss"}<br>`;
-        resultHTML += `&nbsp;&nbsp; Damage (d10): ${result.d10}<br><br>`;
-
-        if (result.hit) {
-          totalDamage += result.d10;
+      Papa.parse(sheetUrl, {
+        download: true,
+        header: true,
+        complete: function (results) {
+          console.log('✅ Parsed data:', results.data);
+          allPosts = results.data;
+          renderPosts(allPosts); // Show all posts initially
+        },
+        error: function (err) {
+          console.error('❌ PapaParse error:', err);
         }
       });
+    });
 
-      resultHTML += `<strong>Total Damage: ${totalDamage}</strong><br>`;
+    // Render posts
+    function renderPosts(posts) {
+      const postContainer = document.getElementById('post');
+      postContainer.innerHTML = ''; // Clear existing posts
 
-      x.innerHTML = resultHTML;
-      damageRecord.push(totalDamage)
+      posts.forEach(row => {
+        if (!row.Image && !row.Text) return;
 
-      return { twentyRoles, tenRoles };
-      
+        const div = document.createElement('div');
+        div.className = 'post';
+
+        let content = `<div class="rounded-square">`;
+        if (row.Image) {
+          content += `<img src="${row.Image}" alt="Post image">`;
+        }
+        if (row.Text) {
+          content += `<p>${row.Text}</p>`;
+        }
+        content += `</div>`;
+        div.innerHTML = content;
+
+        postContainer.appendChild(div);
+      });
+    }
+    function RELODE() {
+      window.location.reload(true);
+    }
+    // Button functions to filter content
+    function ART_BUTTON() {
+      HEAD.innerHTML = "GRAM.<br>ART"
+      const filtered = allPosts.filter(row => row.Category.toUpperCase() === "ART");
+      renderPosts(filtered);
     }
 
+    function WRITING_BUTTON() {
+      HEAD.innerHTML = "GRAM.<br>WRITING"
+      const filtered = allPosts.filter(row => row.Category?.toUpperCase() === "WRITING");
+      renderPosts(filtered);
+    }
 
-
-
-
-    function OrbGame() {
-      const button = document.getElementById('Orb-Game');
-      const gameContainer = document.getElementById('game-container');
-
-      const iframe = document.createElement('iframe');
-      iframe.src = 'og/index.html';
-      iframe.width = '1152px';
-      iframe.height = '648px';
-      iframe.style.border = 'none';
-      gameContainer.appendChild(iframe);
-
-      button.style.display = 'none';
+    function GAMES_BUTTON() {
+      HEAD.innerHTML = "GRAM.<br>GAMES"
+      const filtered = allPosts.filter(row => row.Category?.toUpperCase() === "GAMES");
+      renderPosts(filtered);
     }
   </script>
+
 </body>
 </html>

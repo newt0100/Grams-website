@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      background: repeating-linear-gradient(-40deg, 
+    #f9a875 0px,
+    #f9a875 10px,
+    #fff6d3 10px,
+    #fff6d3 20px);
+    }
+    .side-header {
+      width: 200px;
+      background-color: #f9a875;
+      color: #7c3f58;
+      height: 100vh;
+      padding: 40px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      text-align-last: left;
+      font-family: myFont;
+      font-size: 40px;
+      box-shadow: 5px 5px 12px rgba(90, 37, 59, 0.3);
+      line-height: 0.85;
+    }
+    .button {
+      color: #7c3f58;
+      background-color: #f9a875;
+    }
+    @font-face {
+      font-family: myFont;
+      src: url(BebasNeue-Regular.ttf);
+    }
+    .post {
+      margin-left: 300px;
+      margin-right: 20px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: #7c3f52;
+    }
+    .rounded-square {
+      display: inline-block;
+      background-color: #fff6d3;
+      border-radius: 40px;
+      padding: 30px;
+      margin-top: 20px;
+      border: 3px solid #f9a875;
+      box-shadow: 5px 5px 12px rgba(90, 37, 59, 0.3);
+    }
+    .rounded-square img {
+      display: block;
+      border-radius: 10px;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Load PapaParse -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <header class="side-header">
+    <h1>GRAM.<br>WEB</h1>
+    <button>ART</button>
+  </header>
+
+  <h1>Welcome to world</h1>
+  <div id="post"></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmEkRx-2gjc5YM2BbuDtlWt-qORpsUvN6ZI_XeV2YEkcwH0GLvWRUkZLX-4C2IcX12owwHupO2ZJyg/pub?output=csv';
+
+        Papa.parse(sheetUrl, {
+        download: true,
+        header: true,
+        complete: function (results) {
+            console.log('✅ Parsed data:', results.data);
+            const postContainer = document.getElementById('post');
+
+            results.data.forEach(row => {
+            // Skip if no image and no text
+            if (!row.Image && !row.Text) return;
+
+            const div = document.createElement('div');
+            div.className = 'post';
+
+            // Build content inside the rounded square
+            let content = `<div class="rounded-square">`;
+
+            if (row.Image) {
+                content += `<img src="${row.Image}" alt="Post image">`;
+            }
+
+            if (row.Text) {
+                content += `<p>${row.Text}</p>`;
+            }
+
+            content += `</div>`; // Close rounded-square
+            div.innerHTML = content;
+
+            postContainer.appendChild(div);
+            });
+        },
+        error: function (err) {
+            console.error('❌ PapaParse error:', err);
+        }
+        });
+    });
+    </script>
+
+
+</body>
+</html>
