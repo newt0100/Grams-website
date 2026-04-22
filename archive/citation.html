@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+</head>
+<body>
+    <h1>Gram's citations</h1>
+    <p>We ONLY have MLA</p>
+    Author's first name: <input type="text" id="AuthFname"><br>
+    Author's last name: <input type="text" id="AuthFname"><br><br>
+    <button onclick="saveValue()">CITE IT</button>
+</body>
+<script>
+    function saveValue() {
+        let AuthFname = document.getElementById("AuthFname").value;
+        console.log(AuthFname);  // shows the value in the console
+    }
+</script>
+</html>
