@@ -1,10 +1,20 @@
-<item>
-  <title>Bonus We Didn't Start the Fire (2022 Version)</title>
-  <description>My first episode</description>
-  <enclosure
-    url="https://gram.1ap.org/Podcasts/Bonus%20We%20Didn't%20Start%20the%20Fire%20(2022%20Version).mp3"
-    length="12345678"
-    type="audio/mpeg" />
-  <guid>episode1</guid>
-  <pubDate>Sun, 30 Aug 2026 12:00:00 GMT</pubDate>
-</item>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Gram's Podcast</title>
+    <link>https://gram.1ap.org</link>
+    <description>Audio episodes hosted from my server.</description>
+
+    <item>
+      <title>Bonus We Didn't Start the Fire (2022 Version)</title>
+      <description>My first episode</description>
+      <enclosure
+        url="https://gram.1ap.org/Podcasts/Bonus%20We%20Didn't%20Start%20the%20Fire%20(2022%20Version).mp3"
+        length="12345678"
+        type="audio/mpeg" />
+      <guid>episode1</guid>
+      <pubDate>Sun, 30 Aug 2026 12:00:00 GMT</pubDate>
+    </item>
+
+  </channel>
+</rss>
