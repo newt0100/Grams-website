@@ -12,7 +12,7 @@
         url="https://gram.1ap.org/Podcasts/Bonus%20We%20Didn't%20Start%20the%20Fire%20(2022%20Version).mp3"
         length="12345678"
         type="audio/mpeg" />
-      <guid>episode1</guid>
+      <guid isPermaLink="true">https://gram.1ap.org/Podcasts/Bonus%20We%20Didn't%20Start%20the%20Fire%20(2022%20Version).mp3</guid>
       <pubDate>Sun, 30 Aug 2026 12:00:00 GMT</pubDate>
     </item>
 
